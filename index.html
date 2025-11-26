@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <div class="background-blobs">
         <div class="blob blob-1"></div>
@@ -24,22 +28,75 @@
                 <p>나만의 QR 코드를 간단하게 만들어보세요.</p>
             </header>
 
-            <div class="input-group">
+            <!-- Usage Guide -->
+            <div class="usage-guide">
+                <div class="step">
+                    <div class="step-icon">📝</div>
+                    <p>설명 입력</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-icon">🔗</div>
+                    <p>링크 붙여넣기</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-icon">✨</div>
+                    <p>버튼 클릭</p>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="link">🔗 링크</button>
+                <button class="tab-btn" data-tab="wifi">📶 와이파이</button>
+                <button class="tab-btn" data-tab="contact">📇 명함</button>
+            </div>
+
+            <!-- Form: Link -->
+            <div class="input-group" id="form-link">
                 <div class="input-wrapper">
                     <label for="description">설명 (선택사항)</label>
                     <input type="text" id="description" placeholder="예: 내 유튜브 채널">
                 </div>
-                
                 <div class="input-wrapper">
                     <label for="url">링크 URL</label>
                     <input type="url" id="url" placeholder="https://youtube.com/..." required>
                 </div>
-
-                <button id="generateBtn">
-                    <span>QR 코드 생성하기</span>
-                    <div class="btn-glow"></div>
-                </button>
             </div>
+
+            <!-- Form: WiFi -->
+            <div class="input-group hidden" id="form-wifi">
+                <div class="input-wrapper">
+                    <label for="wifi-ssid">와이파이 이름 (SSID)</label>
+                    <input type="text" id="wifi-ssid" placeholder="예: MyHome_5G">
+                </div>
+                <div class="input-wrapper">
+                    <label for="wifi-pw">비밀번호</label>
+                    <input type="text" id="wifi-pw" placeholder="비밀번호 입력">
+                </div>
+            </div>
+
+            <!-- Form: Contact -->
+            <div class="input-group hidden" id="form-contact">
+                <div class="input-wrapper">
+                    <label for="contact-name">이름</label>
+                    <input type="text" id="contact-name" placeholder="예: 홍길동">
+                </div>
+                <div class="input-wrapper">
+                    <label for="contact-phone">전화번호</label>
+                    <input type="tel" id="contact-phone" placeholder="010-1234-5678">
+                </div>
+                <div class="input-wrapper">
+                    <label for="contact-email">이메일 (선택)</label>
+                    <input type="email" id="contact-email" placeholder="hong@example.com">
+                </div>
+            </div>
+
+            <button id="generateBtn">
+                <span>QR 코드 생성하기</span>
+                <div class="btn-glow"></div>
+            </button>
 
             <div id="result-area" class="hidden">
                 <div class="qr-frame">
@@ -49,8 +106,25 @@
                 <p id="result-link" class="result-link"></p>
             </div>
         </div>
+
+        <!-- SEO Content -->
+        <article class="seo-content glass">
+            <h2>QR 코드는 어떻게 활용하나요?</h2>
+            <p>
+                QR 코드(Quick Response Code)는 스마트폰 카메라로 스캔하여 웹사이트, 동영상, 연락처 등으로
+                빠르게 연결해주는 2차원 바코드입니다. 마케팅, 명함, 와이파이 공유 등 다양한 곳에 활용해보세요.
+            </p>
+
+            <h3>💡 활용 꿀팁</h3>
+            <ul>
+                <li><strong>유튜브 홍보:</strong> 채널 링크를 QR로 만들어 명함에 넣어보세요.</li>
+                <li><strong>와이파이 공유:</strong> 복잡한 비밀번호 대신 QR 코드 하나로 해결하세요.</li>
+                <li><strong>이벤트 안내:</strong> 포스터나 전단지에 QR을 넣어 상세 페이지로 유도하세요.</li>
+            </ul>
+        </article>
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
