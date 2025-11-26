@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="card glass">
+            <header>
+                <h1>QR Creator</h1>
+                <p>나만의 QR 코드를 간단하게 만들어보세요.</p>
+            </header>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="description">설명 (선택사항)</label>
+                    <input type="text" id="description" placeholder="예: 내 유튜브 채널">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="url">링크 URL</label>
+                    <input type="url" id="url" placeholder="https://youtube.com/..." required>
+                </div>
+
+                <button id="generateBtn">
+                    <span>QR 코드 생성하기</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+
+            <div id="result-area" class="hidden">
+                <div class="qr-frame">
+                    <div id="qrcode"></div>
+                </div>
+                <p id="result-desc" class="result-text"></p>
+                <p id="result-link" class="result-link"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
